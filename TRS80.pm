@@ -13,6 +13,12 @@ At present, there is no port of Pel to the TRS-80 Model I computer.
 Until there is, this module is provided to simulate the TRS-80
 environment.
 
+=head1 DEMONSTRATION
+
+Try
+
+	perl -MTRS80 -e '1+2)'
+
 =head1 AUTHOR
 
 Mark-Jason Dominus C<mjd-perl-trs80+@plover.com>
@@ -22,7 +28,7 @@ Mark-Jason Dominus C<mjd-perl-trs80+@plover.com>
 
 my @pats;
 
-$TRS80::VERSION = '1.00';
+$TRS80::VERSION = '1.01';
 
 sub trs80 {
   my ($pat, $out, $pp);
@@ -44,7 +50,7 @@ sub trs80 {
 my $MSG; 
 while (<DATA>) {
   chomp;
-  if (/^==(.*)/) {
+  if (/^%%(.*)/) {
     $MSG = $1;
 #    print ">> MESSAGE TYPE $MSG\n";
     next;
@@ -74,7 +80,7 @@ END {
 1;
 
 __DATA__
-==WHAT?
+%%WHAT?
 "my sub" not yet implemented
 "my" variable .* can't be in a package
 "no" not allowed in expression
@@ -248,7 +254,7 @@ Version number must be a constant number
 Warning: Use of ".*" without parentheses is ambiguous
 You need to quote ".*"
 
-==HOW?
+%%HOW?
 / cannot take a count
 / must be followed by a, A or Z
 / must be followed by a\*, A\* or Z\*
@@ -372,7 +378,7 @@ Xsub ".*" called in sort
 Xsub called in sort
 You can't use C<-l> on a filehandle
 
-==SORRY
+%%SORRY
 .* had compilation errors
 .* has too many errors
 .* matches null string many times
